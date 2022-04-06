@@ -1,34 +1,34 @@
-class User {
-    constructor(name, email, phone, addr, password) {
+// 原型模式
+class User{
+    constructor(name, email, phone, addr, password){
         this.setName(name);
         this.setEmail(email);
-        this.setAddr(addr);
         this.setPhone(phone);
+        this.setAddr(addr);
         this.setPassword(password);
     }
-    setName(name) {
-        console.log(this.name);
+    setName(name){
         this.name = name;
     }
-    setEmail(email) {
+    setEmail(email){
         this.email = email;
     }
-    setPhone(phone) {
+    setPhone(phone){
         this.phone = phone;
     }
-    setAddr(addr) {
-        this.address = addr;
+    setAddr(addr){
+        this.addr = addr;
     }
-    setPassword(password) {
+    setPassword(password){
         this.password = password;
     }
 }
 
-function init() {
-    createForm.addEventListener("submit", (e) => {
+function init(){
+    createForm.addEventListener('submit', (e)=>{
         e.preventDefault();
         var people;
-        try {
+        try{
             let name = document.querySelector("[name=name]").value;
             let email = document.querySelector("[name=email]").value;
             let phone = document.querySelector("[name=phone]").value;
@@ -37,8 +37,8 @@ function init() {
             let c_password = document.querySelector("[name=confirmed_password]").value;
             console.log(name, email, phone, addr, password);
 
-            if ((!password) || (!c_password) || (c_password !== password)) {
-                throw "Please double check your password.";
+            if(password != c_password){
+                throw new Error("Password not match");
             }
 
             people = new User();
@@ -47,14 +47,14 @@ function init() {
             people.setPhone(phone);
             people.setAddr(addr);
             people.setPassword(password);
-        } catch (e) {
-            // catch error msg
-            alert(e);
+            
+        } catch(e){
+            console.log(e);
         }
         console.log(people);
     });
 }
 
-// start
+
 let createForm = document.getElementById("my-form");
 init();

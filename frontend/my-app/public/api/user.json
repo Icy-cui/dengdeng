@@ -1,0 +1,9 @@
+{
+    "message": "success",
+    "data": {
+        "name": "john",
+        "id": 123,
+        "email": "123@gmail.com",
+        "password": "123"
+    }
+}
